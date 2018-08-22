@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  display: flex;
+  transform: translateY(50px);
+}
+
+.red {
+  color: red;
+
+  .yellow {
+    color: blue;
+  }
+}
