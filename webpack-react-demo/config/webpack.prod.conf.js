@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, '../src/main.js'),
+  entry: path.resolve(__dirname, '../src/main.jsx'),
   output: {
     // filename: "bundle.js",
     path: path.resolve(__dirname, '../dist'),
@@ -50,7 +50,12 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
-        }
+        },
+        // default: {
+        //   minChunks: 2,
+        //   priority: -20,
+        //   reuseExistingChunk: true
+        // }
       },
       minSize: 8000
     }
