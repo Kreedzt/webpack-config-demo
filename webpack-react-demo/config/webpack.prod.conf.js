@@ -8,7 +8,7 @@ module.exports = {
   mode: "production",
   entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    filename: "bundle.js",
+    // filename: "bundle.js",
     path: path.resolve(__dirname, '../dist'),
   },
   plugins: [
@@ -37,13 +37,22 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        styles: {
-          // name: 'styles',
-          // test: /\.css$/,
-          // chunks: "all",
-          // enforce: true
+        // styles: {
+        //   // name: 'styles',
+        //   // test: /\.css$/,
+        //   // chunks: "all",
+        //   // enforce: true
+        // }
+        commons: {
+          // name: 'commons',
+          // chunks: 'initial',
+          // minChunks: 2
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
         }
-      }
+      },
+      minSize: 8000
     }
   },
   resolve: {

@@ -1,15 +1,32 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    filename: "bundle.js",
+    // filename: "bundle.js",
     path: path.resolve(__dirname, '../dist'),
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../index.html')
+    }),
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      },
+      minSize: 8000
+    }
+  },
   resolve: {
     extensions: ['.jsx', '.js']
   },
