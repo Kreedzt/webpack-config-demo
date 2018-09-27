@@ -1,4 +1,4 @@
-Vue 配置
+# Vue 配置
 > webpack4 + Scss
 > 使用Babel7而不是babel6
 
