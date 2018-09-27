@@ -57,7 +57,7 @@ module.exports = {
         //   reuseExistingChunk: true
         // }
       },
-      minSize: 8000
+      minSize: 1000
     }
   },
   resolve: {
@@ -124,7 +124,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              limit: 5
+              limit: 8192
             }
           }
         ]
