@@ -7,6 +7,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
   mode: "production",
   entry: path.resolve(__dirname, '../src/main.js'),
+  // entry: {
+  //   app: path.resolve(__dirname, '../src/main.js'),
+  //   // 对应：指定数组方式
+  //   vendor: ['vue']
+  // },
   output: {
     // publicPath: path.resolve(__dirname, '../dist/assets'),
     path: path.resolve(__dirname, '../dist'),
@@ -14,13 +19,28 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
+        // 正则匹配方式
+        // vendor: {
+        //   test: /vue|angular/,
+        //   chunks: "initial",
+        //   name: "common-framework",
+        //   enforce: true
+        // }
+        // 指定匹配数组方式
+        // vendor: {
+        //   chunks: "initial",
+        //   test: "vendor",
+        //   name: 'common-lib',
+        //   enforce: true
+        // },
+        // 全部打包方式
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
-        }
+        },
       },
-      minSize: 8000
+      minSize: 1000
     }
   },
   plugins: [
@@ -45,6 +65,9 @@ module.exports = {
     })
   ],
   resolve: {
+    // modules: [
+    //   path.resolve(__dirname, 'node_modules')
+    // ],
     extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.min.js'
@@ -54,6 +77,9 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -73,6 +99,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -91,7 +120,10 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
+        // exclude: /(node_modules|bower_components)/,
         use: [
           {
             loader: 'babel-loader',
@@ -103,6 +135,9 @@ module.exports = {
       },
       {
         test: /\.vue$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           {
             loader: 'vue-loader',
@@ -115,7 +150,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              limit: 5
+              limit: 8192
             }
           }
         ]

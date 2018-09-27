@@ -1,13 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, '../src/main.js'),
+  devServer: {
+    // publicPath: "localhost:8080/assets/",
+    port: 8080
+  },
   output: {
-    // publicPath: path.resolve(__dirname, '../dist/assets'),
+    // publicPath: 'localhost:8080/assets/',
     path: path.resolve(__dirname, '../dist'),
   },
   plugins: [
@@ -17,6 +20,9 @@ module.exports = {
     new VueLoaderPlugin()
   ],
   resolve: {
+    modules: [
+      path.resolve(__dirname, '../node_modules')
+    ],
     extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.js'
@@ -26,6 +32,9 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           'vue-style-loader',
           {
@@ -52,6 +61,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           'vue-style-loader',
           {
@@ -84,6 +96,9 @@ module.exports = {
       },
       {
         test: /\.vue$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
         use: [
           {
             loader: 'vue-loader',
