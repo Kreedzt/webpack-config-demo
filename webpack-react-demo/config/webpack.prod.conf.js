@@ -37,25 +37,11 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        // styles: {
-        //   // name: 'styles',
-        //   // test: /\.css$/,
-        //   // chunks: "all",
-        //   // enforce: true
-        // }
         commons: {
-          // name: 'commons',
-          // chunks: 'initial',
-          // minChunks: 2
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
         },
-        // default: {
-        //   minChunks: 2,
-        //   priority: -20,
-        //   reuseExistingChunk: true
-        // }
       },
       minSize: 1000
     }
@@ -78,7 +64,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: true,
-              // importLoaders: 1,
+              importLoaders: 1,
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             }
           },
@@ -104,8 +90,8 @@ module.exports = {
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             }
           },
+          'postcss-loader',
           'resolve-url-loader',
-          'postcss-loader'
         ],
       },
       {

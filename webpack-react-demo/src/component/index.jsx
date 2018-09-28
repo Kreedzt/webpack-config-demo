@@ -10,6 +10,7 @@ class Index extends Component {
     return <h1 className={style.red}>
       Hello, webpack
       <img src={img} alt=""/>
+      <div className={style.bg}>test-bg</div>
     </h1>
   }
 }

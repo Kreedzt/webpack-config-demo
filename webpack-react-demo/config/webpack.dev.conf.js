@@ -45,6 +45,7 @@ module.exports = {
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             }
           },
+          'postcss-loader',
           'resolve-url-loader',
         ]
       },
@@ -61,6 +62,7 @@ module.exports = {
               localIdentName: '[path][name]__[local]--[hash:base64:5]'
             }
           },
+          'postcss-loader',
           'resolve-url-loader',
           'sass-loader'
         ]
