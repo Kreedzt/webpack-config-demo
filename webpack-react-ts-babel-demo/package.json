@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config config/webpack.dev.js"
+    "dev": "webpack-dev-server --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -22,6 +23,7 @@
     "cssnano": "^4.1.10",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
