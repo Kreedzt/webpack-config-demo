@@ -48,9 +48,9 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
-              // importLoaders: 1,
-              localIdentName: '[name]',
+              // modules: true,
+              importLoaders: 1,
+              // localIdentName: '[name]',
             }
           },
           'postcss-loader',
@@ -66,8 +66,8 @@ module.exports = {
             loader: "css-loader",
             options: {
               // modules: true,
-              sourceMap: true
-              // importLoaders: 2,
+              sourceMap: true,
+              importLoaders: 3,
               // localIdentName: '[name]'
             }
           },
