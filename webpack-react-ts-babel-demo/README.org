@@ -4,13 +4,23 @@
 
 1. babel-loader: ~@babel/typescript~
 2. babel-plugins: ~@babel/proposal-class-properties~, ~@babel/proposal-object-rest-spread~
-3. npm script: ~"type-check": "tsc --noEmit"~;
+3. npm script:
+   #+begin_src json
+     {
+       "type-check": "tsc --noEmit"
+     }
+   #+end_src
 
 ** 使用React
 
 1. babel-loader: ~@babel/preset-react@7.0.0~
-2. in tsconfig.json: ~"jsx": "react"~
+2. in tsconfig.json: 
+   #+begin_src json
+     {
+       "jsx": "react"
+     }
+   #+end_src
 
-参考:
+** 参考:
 - [[https://github.com/Microsoft/TypeScript-Babel-Starter#how-would-i-set-this-up-myself][MicroSoft-TypeScirpt-Babel-Starter]]
 - [[https://zhuanlan.zhihu.com/p/59614089][{译} TypeScript 和 Babel：美丽的结合]]
