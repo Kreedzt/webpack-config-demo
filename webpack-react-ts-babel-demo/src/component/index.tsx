@@ -1,8 +1,9 @@
 import React from 'react';
+import './style/index.scss';
 
 const Index = () => {
   return (
-    <div>
+    <div className="index">
       TypeScript Babel Effected.
     </div>
   )

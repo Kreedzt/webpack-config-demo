@@ -36,9 +36,61 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              // importLoaders: 1,
+              localIdentName: '[name]',
+            }
+          },
+          'postcss-loader',
+          'resolve-url-loader',
+        ]
+      },
+      {
+        test: /\.s[ac]ss$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: "css-loader",
+            options: {
+              // modules: true,
+              sourceMap: true
+              // importLoaders: 2,
+              // localIdentName: '[name]'
+            }
+          },
+          'postcss-loader',
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true              
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   }
