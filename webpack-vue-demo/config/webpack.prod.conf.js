@@ -7,14 +7,14 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
   mode: "production",
   entry: path.resolve(__dirname, '../src/main.js'),
-  // entry: {
-  //   app: path.resolve(__dirname, '../src/main.js'),
   //   // 对应：指定数组方式
   //   vendor: ['vue']
   // },
   output: {
     // publicPath: path.resolve(__dirname, '../dist/assets'),
     path: path.resolve(__dirname, '../dist'),
+    filename: "js/[name].[fullhash:8].js",
+    chunkFilename: "js/[name].[fullhash:8].chunk.js",
   },
   optimization: {
     splitChunks: {
@@ -49,8 +49,8 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name]_[hash:8].css",
-      chunkFilename: '[id].[hash:8].css',
+      filename: "css/[name]_[fullhash:8].css",
+      chunkFilename: 'css/[id].[fullhash:8].css',
       minimize: true
     }),
     new OptimizeCssAssetsPlugin({
@@ -111,7 +111,7 @@ module.exports = {
             options: {
               modules: true,
               importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              localIdentName: '[path][name]__[local]--[fullhash:base64:5]',
             }
           },
           'postcss-loader',

@@ -1,0 +1,5 @@
+* React配置(已不再更新)
+  *说明*: 此配置版本不会更新到 webpack@5, 因官方已推荐使用 babel-loader 解析
+  TypeScript, 故此配置更新无意义.
+
+  要查看使用 babel-loader 解析 TypeScript 的配置参考, 请在上级找 ~webpack-react-ts-demo~ 目录

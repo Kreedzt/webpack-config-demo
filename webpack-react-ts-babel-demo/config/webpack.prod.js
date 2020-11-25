@@ -8,8 +8,8 @@ module.exports = {
   mode: "production",
   entry: path.resolve(__dirname, "../src/index.tsx"),
   output: {
-    filename: "js/[name].[contenthash:8].js",
-    chunkFilename: "js/[name].[contenthash:8].chunk.js",
+    filename: "js/[name].[fullhash:8].js",
+    chunkFilename: "js/[name].[fullhash:8].chunk.js",
     // publicPath: path.resolve(__dirname, '../dist'),
     path: path.resolve(__dirname, "../dist")
   },
@@ -31,8 +31,8 @@ module.exports = {
       template: path.resolve(__dirname, "../index.html")
     }),
     new MiniCssExtractPlugin({
-      filename: "css/[name]_[hash:8].css",
-      chunkFilename: "css/[id].[hash:8].css",
+      filename: "css/[name]_[fullhash:8].css",
+      chunkFilename: "css/[id].[fullhash:8].css",
       minimize: true
     }),
     new OptimizeCssAssetsPlugin({

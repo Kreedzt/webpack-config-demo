@@ -1,8 +1,8 @@
-import React from "react";
+import React, { SFC } from "react";
 import "./style/index.scss";
 import feng from '../assets/feng.jpg';
 
-const Index = () => {
+const Index: SFC = () => {
   return (
     <div className="index">
       TypeScript Babel Effected.

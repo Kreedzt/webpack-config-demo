@@ -4,13 +4,14 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: "development",
-  entry: path.resolve(__dirname, '../src/main.js'),
+  devtool: "eval-source-map",
   devServer: {
-    // publicPath: "localhost:8080/assets/",
-    port: 8080
+    hot: true,
+    host: "0.0.0.0",
+    port: 8010
   },
+  entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    // publicPath: 'localhost:8080/assets/',
     path: path.resolve(__dirname, '../dist'),
   },
   plugins: [
@@ -20,9 +21,9 @@ module.exports = {
     new VueLoaderPlugin()
   ],
   resolve: {
-    modules: [
-      path.resolve(__dirname, '../node_modules')
-    ],
+    // modules: [
+    //   path.resolve(__dirname, '../node_modules')
+    // ],
     extensions: ['.js', '.vue'],
     alias: {
       vue: 'vue/dist/vue.js'

@@ -1,4 +1,9 @@
 * React + TypeScript配置(使用babel-loader解析)
+  *补充说明*:
+  已升级到 webpack5, 改动见[[https://webpack.js.org/migrate/5/][官方文档]]
+
+  *影响包*: (使用 upgrade 命令后依旧无法使用的包)
+  - html-webpack-plugin 需使用 ~@next~ 版本安装 [[https://github.com/jantimon/html-webpack-plugin][文档说明]]
 
 ** 核心
 
