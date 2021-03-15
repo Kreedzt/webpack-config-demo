@@ -94,7 +94,7 @@ module.exports = {
           },
           "postcss-loader",
           "resolve-url-loader",
-          "sass-loader"
+          "less-loader"
         ]
       },
       {

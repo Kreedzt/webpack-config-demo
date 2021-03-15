@@ -8,7 +8,7 @@ const Index: SFC = () => {
 
   const fn = () => {
     // 此处类型检测应该生效
-     return a === 2;
+    /* return a === 2; */
   };
 
   return (

@@ -76,9 +76,9 @@ module.exports = {
           'postcss-loader',
           'resolve-url-loader',
           {
-            loader: 'sass-loader',
+            loader: 'less-loader',
             options: {
-              sourceMap: true              
+              sourceMap: true
             }
           }
         ]
